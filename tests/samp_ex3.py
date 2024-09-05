@@ -24,7 +24,7 @@ class Ex1Func(object):
         self.sigma = sigma
 
     def __call__(self, x):
-    	return norm.pdf(x[0], loc=self.mu, scale=self.sigma)
+        return norm.pdf(x[0], loc=self.mu, scale=self.sigma)
 
 
 if __name__=='__main__':
