@@ -115,3 +115,12 @@ def ei(mu, sigma, y_star, mode="min"):
     elif mode=="max":
         z = (mu - y_star) / np.sqrt(sigma)
         return (np.sqrt(sigma)) * norm.pdf(z) + (mu - y_star) * norm.cdf(z)
+    
+    
+class Dataset:
+    def __init__(self, X, Y):
+        self.X = np.atleast_2d(X)
+        self.Y = np.atleast_2d(Y)
+        self.input_dim = X.shape[1]
+        self.n = X.shape[0]
+        
