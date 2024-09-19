@@ -22,7 +22,7 @@ from pyDOE2 import lhs
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
 from bode._quadrature import Quadrature
-from bode._eig_sampler import EIGSampler
+from bode._eig_sampler import AnalyticalEIGSampler
 
 class SynethicProblem(object):
     def __init__(self, n=3, dim=1, n_true=100_000):
@@ -54,7 +54,10 @@ if __name__=='__main__':
     
     quadrature = Quadrature(500, problem.dim)
     
-    eig_sampler = EIGSampler(problem.X_init, problem.Y_init)
+    eig_sampler = AnalyticalEIGSampler(problem.X_init, problem.Y_init)
     
-    import pdb; pdb.set_trace()
+    eig_sampler.step()
+    
+    # import pdb; pdb.set_trace()
+    print("~~Ovn!")
     
