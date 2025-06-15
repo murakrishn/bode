@@ -15,7 +15,7 @@ import GPy
 import emcee
 import numpy as np
 
-from ._core import GammaPrior, BetaPrior, JeffreysPrior, Dataset
+from bode._core import GammaPrior, BetaPrior, JeffreysPrior, Dataset
 
 class BayesianGP(GPy.models.GPRegression):
     """Fully Bayesian probabilistic surrogate model"""
@@ -64,7 +64,7 @@ class BayesianGP(GPy.models.GPRegression):
         return log_priors
     
     
-def sample_gp_q_data(model_q_d: BayesianGP, mcmc_chains=10, mcmc_steps=500, 
+def sample_gp_theta(model_q_d: BayesianGP, mcmc_chains=10, mcmc_steps=500, 
                      mcmc_burn=100, mcmc_thin=30, mcmc_model_avg=50):
     """Sample posterior of the hyperparameters of a BayesianGP conditioned on data."""
     input_dim = model_q_d.input_dim

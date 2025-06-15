@@ -414,6 +414,7 @@ class KLSampler(object):
         ss = model.kern.variance
         ek = xik(X, ells, ss)[:, None]
         mu_1 = np.matmul(al.T, ek)
+        bp()
         return mu_1.item()	 			#	Scalar
 
 
@@ -427,6 +428,7 @@ class KLSampler(object):
         return eig_funcs_hyp
 
     def get_mu_sigma(self, model, X, Y):
+        # bp()
         if self.mcmc_model:
             mu_1 = 0
             sigma_1 = 0
